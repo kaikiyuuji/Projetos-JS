@@ -1,66 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - SCEV</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@600&display=swap');
+
+    h2 {font-family: 'Prompt', sans-serif;}
+  </style>
 </head>
 <body>
     <header>
-        <h1 style="text-align: center;">SCEV</h1>
-        <p style="text-align: center;">Sistema de Controle de Estoque Virtual</p>
-    </header>
-    <nav id="menu">
-        <ul id="menu-h">
-            <li><a href="dashboard.html">HOME</a></li>
-            <li><a href="crudprodutos.html">PRODUTOS</a></li>
-            <li><a href="crudfornecedores.html">FORNECEDORES</a></li>
-            <li><a href="crudclientes.html">CLIENTES</a></li>
-            <li><a href="entradaestoque.html">ENTRADA</a></li>
-            <li><a href="saidaestoque.html">SAÍDA</a></li>
-            <li class="logins" id="cadastrar"><a href="cadastro.html">Cadastrar</a></li>
-            <li class="logins" id="entrar"><a href="login.html">Entrar</a></li>
-        </ul>
-    </nav>
-    <main>
-        <div class="container">
-            <h1 class="text-center">Dashboard</h1>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Produtos Cadastrados</h5>
-                            <p class="card-text">Total: {totalProdutos}</p>
-                            <a href="crudprodutos.html" class="btn btn-primary">Ver Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Fornecedores Cadastrados</h5>
-                            <p class="card-text">Total: {totalFornecedores}</p>
-                            <a href="crudfornecedores.html" class="btn btn-primary">Ver Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Clientes Cadastrados</h5>
-                            <p class="card-text">Total: {totalClientes}</p>
-                            <a href="crudclientes.html" class="btn btn-primary">Ver Detalhes</a>
-                        </div>
-                    </div>
-                </div>
+        <nav class="nav-bar">
+            <div class="logo">
+                <img src="assets/img/logo.png" alt="">
+            </div>
+            <div class="nav-list">
+                <ul id="ul-1">
+                    <li class="nav-item"><a href="dashboard.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">Produtos</a></li>
+                    <li class="nav-item"><a href="supplier.html" class="nav-link">Fornecedores</a></li>
+                    <li class="nav-item"><a href="clients.html" class="nav-link">Clientes</a></li>
+                    <li class="nav-item"><a href="input.html" class="nav-link">Entrada</a></li>
+                    <li class="nav-item"><a href="leavescreen.html" class="nav-link">Saída</a></li>
+                </ul>
+            </div>
+            <div class="login-button">
+                <button><a href="login.html">Entrar</a></button>
+            </div>
+    
+            <div class="mobile-menu-icon">
+                <button onclick="menuShow()"><img class="icon" src="assets/img/menu_white_36dp.svg" alt=""></button>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <ul>
+                <li class="nav-item"><a href="dashboard.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link">Produtos</a></li>
+                    <li class="nav-item"><a href="supplier.html" class="nav-link">Fornecedores</a></li>
+                    <li class="nav-item"><a href="clients.html" class="nav-link">Clientes</a></li>
+                    <li class="nav-item"><a href="input.html" class="nav-link">Entrada</a></li>
+                    <li class="nav-item"><a href="leavescreen.html" class="nav-link">Saída</a></li>
+            </ul>
+    
+            <div class="login-button">
+                <button><a href="login.html">Entrar</a></button>
             </div>
         </div>
-    </main>
+    </header>
+<main style="margin-top: 40px;">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6">
+                  <h2>Produtos</h2>
+                  <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Fornecedor</th>
+              <th>Categoria</th>
+            </tr>
+          </thead>
+          <tbody id="produtosTableBody">
+           
+          </tbody>
+        </table>
+      </div>
 
-    <footer><p>© 2023 site criado por Kaiki</p></footer>
+      <div class="col-md-6">
+        <h2>Fornecedores</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Categoria</th>
+            </tr>
+          </thead>
+          <tbody id="fornecedoresTableBody">
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="row">
+      <div class="col-md-6">
+          <h2>Clientes</h2>
+          <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Telefone</th>
+            </tr>
+          </thead>
+          <tbody id="clientesTableBody">
+            
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-6">
+        <h2>Registros de Entrada</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Data/Hora</th>
+              <th>Produto</th>
+              <th>Fornecedor</th>
+              <th>Categoria</th>
+            </tr>
+          </thead>
+          <tbody id="registrosEntradaTableBody">
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+          <h2>Registros de Saída</h2>
+          <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Data/Hora</th>
+              <th>Produto</th>
+              <th>Fornecedor</th>
+              <th>Cliente</th>
+            </tr>
+          </thead>
+          <tbody id="registrosSaidaTableBody">
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+  <script src="assets/js/dashboard.js"></script>
 </body>
 </html>

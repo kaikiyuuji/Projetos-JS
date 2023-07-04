@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tabela de Clientes</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav-bar">
+        <div class="logo">
+            <img src="assets/img/logo.png" alt="">
+        </div>
+        <div class="nav-list">
+            <ul id="ul-1">
+                <li class="nav-item"><a href="dashboard.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link">Produtos</a></li>
+                <li class="nav-item"><a href="supplier.html" class="nav-link">Fornecedores</a></li>
+                <li class="nav-item"><a href="clients.html" class="nav-link">Clientes</a></li>
+                <li class="nav-item"><a href="input.html" class="nav-link">Entrada</a></li>
+                <li class="nav-item"><a href="leavescreen.html" class="nav-link">Saída</a></li>
+            </ul>
+        </div>
+        <div class="login-button">
+            <button><a href="login.html">Entrar</a></button>
+        </div>
+
+        <div class="mobile-menu-icon">
+            <button onclick="menuShow()"><img class="icon" src="assets/img/menu_white_36dp.svg" alt=""></button>
+        </div>
+    </nav>
+    <div class="mobile-menu">
+        <ul>
+              <li class="nav-item"><a href="dashboard.html" class="nav-link">Home</a></li>
+              <li class="nav-item"><a href="products.html" class="nav-link">Produtos</a></li>
+              <li class="nav-item"><a href="supplier.html" class="nav-link">Fornecedores</a></li>
+              <li class="nav-item"><a href="clients.html" class="nav-link">Clientes</a></li>
+              <li class="nav-item"><a href="input.html" class="nav-link">Entrada</a></li>
+              <li class="nav-item"><a href="leavescreen.html" class="nav-link">Saída</a></li>
+        </ul>
+
+        <div class="login-button">
+            <button><a href="#">Entrar</a></button>
+        </div>
+    </div>
+</header>
+<main style="margin-top: 40px;">
+  <div class="container">
+    <form id="form-cliente">
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" class="form-control" id="cliente-nome" placeholder="Nome do Cliente">
+        </div>
+        <div class="col">
+          <input type="email" class="form-control" id="cliente-email" placeholder="E-mail">
+        </div>
+        <div class="col">
+          <input type="tel" class="form-control" id="cliente-telefone" placeholder="Telefone">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Adicionar Cliente</button>
+    </form>
+    <br>
+    <table class="table table-striped table-responsive">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>E-mail</th>
+          <th>Telefone</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-clientes-corpo">
+      </tbody>
+    </table>
+  </div>
+</main>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/clients.js"></script>
+</body>
+</html>
